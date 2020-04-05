@@ -39,8 +39,8 @@ var designerSchema = new mongoose.Schema({
         required:[true, "Capacity is a required field"],
         trim:true,
         validate(value){
-            if (value<1 || !(Number.isInteger(value))) {
-                throw new Error("Capacity must be an integer greater than 0");
+            if (value<0) {
+                throw new Error("Capacity must be greater than 0");
             }
         }
     },
@@ -67,9 +67,6 @@ var designerSchema = new mongoose.Schema({
                 throw new Error("Please enter URL in a valid format")
             }
         }
-    },
-    rawimage:{
-        type:Buffer
     }
 },{
     timestamps:true

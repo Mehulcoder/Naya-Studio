@@ -68,9 +68,6 @@ var makerSchema = new mongoose.Schema({
                 throw new Error("Please enter URL in a valid format")
             }
         }
-    },
-    rawimage:{
-        type:Buffer
     }
 },{
     timestamps:true

@@ -34,13 +34,23 @@ var designerMakerSchema = new mongoose.Schema({
             }
         }
     },
-    capacity:{
+    designerCapacity:{
         type:Number,
-        required:[true, "Capacity is a required field"],
+        required:[true, "Designer Capacity is a required field"],
+        trim:true,
+        validate(value){
+            if (value<0) {
+                throw new Error("Designer Capacity must be greater than 0");
+            }
+        }
+    },
+    makerCapacity:{
+        type:Number,
+        required:[true, "Maker Capacity is a required field"],
         trim:true,
         validate(value){
             if (value<1 || !(Number.isInteger(value))) {
-                throw new Error("Capacity must be an integer greater than 0");
+                throw new Error("Maker Capacity must be an integer greater than 0");
             }
         }
     },
@@ -83,9 +93,6 @@ var designerMakerSchema = new mongoose.Schema({
                 throw new Error("Please enter URL in a valid format")
             }
         }
-    },
-    rawimage:{
-        type:Buffer
     }
 },{
     timestamps:true
