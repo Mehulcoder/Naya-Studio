@@ -7,6 +7,14 @@ var Maker = require('../models/maker');
 var DesignerMaker = require('../models/designerMaker');
 
 //
+// ─── FORM ROUTE ─────────────────────────────────────────────────────────────────
+//
+
+router.get('/maker', (req, res) => {
+    res.render('maker.ejs')
+})
+
+//
 // ─── VIEW ROUTE ─────────────────────────────────────────────────────────────────
 //
 
