@@ -51,12 +51,12 @@ var designerSchema = new mongoose.Schema({
         trim:true,
         lowercase:true,
         enum:{
-            values:[furniture designer,architect,interior designer,industrial designer,designer maker,other],
+            values:['furniture designer','architect','interior designer','industrial designer','designer maker','other'], 
             message: 'Please choose from the given options only!'
         }
     },
     training:{
-        type:String
+        type:String,
         type: String,
         required:true,
         trim:true,
