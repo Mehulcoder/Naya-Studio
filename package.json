@@ -1,0 +1,30 @@
+{
+  "name": "naya-studio",
+  "version": "1.0.0",
+  "description": "Internship task by Naya Studio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mehulcoder/Naya-Studio-Task.git"
+  },
+  "author": "Mehul Chaturvedi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mehulcoder/Naya-Studio-Task/issues"
+  },
+  "homepage": "https://github.com/Mehulcoder/Naya-Studio-Task#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.7",
+    "multer": "^1.4.2",
+    "sharp": "^0.25.2",
+    "validator": "^13.0.0"
+  }
+}
