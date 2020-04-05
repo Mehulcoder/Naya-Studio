@@ -39,8 +39,8 @@ var designerMakerSchema = new mongoose.Schema({
         required:true,
         trim:true,
         validate(value){
-            if (value<0) {
-                throw new Error("Capacity must be a positive number");
+            if (value<1 || !(Number.isInteger(value))) {
+                throw new Error("Capacity must be an integer greater than 0");
             }
         }
     },
