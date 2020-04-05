@@ -58,6 +58,8 @@ router.post('/designer', async (req, res) => {
 //
 
 router.post('/maker', async (req, res) => {
+    console.log(req.body);
+
     try {
         var maker = new Maker(req.body);
         await maker.save();
