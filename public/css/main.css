@@ -1,10 +1,8 @@
 body{
-  background: #f5683d;
-  padding-top: 25vh;
-}
-
-form{
-  background: #fff;
+  background-color: cadetblue;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  opacity: .8;
 }
 
 .form-container{
@@ -12,4 +10,15 @@ form{
   border-radius: 10px;
   padding: 30px;
   box-shadow: 0px 0px 10px 0px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+}
+
+label{
+  color: aliceblue;
 }
