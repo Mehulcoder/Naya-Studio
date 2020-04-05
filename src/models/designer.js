@@ -33,7 +33,6 @@ var designerSchema = new mongoose.Schema({
                 throw Error('The password should not contain the keyword "password"!');
             }
         }
-
     },
     capacity:{
         type:Number,
@@ -57,11 +56,12 @@ var designerSchema = new mongoose.Schema({
     },
     training:{
         type:String,
-        type: String,
         required:true,
         trim:true,
         lowercase:true
     }
+},{
+    timestamps:true
 })
 
 //

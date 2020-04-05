@@ -3,6 +3,7 @@ var router = new express.Router();
 var multer = require('multer');
 var sharp = require('sharp');
 var Designer = require("../models/designer");
+var Maker = require('../models/maker');
 
 //
 // ─── VIEW ROUTE ─────────────────────────────────────────────────────────────────
@@ -13,7 +14,35 @@ router.get('/view', async (req, res) => {
 });
 
 //
+// ─── CREATE A DESIGNER ──────────────────────────────────────────────────────────
+//
+
+router.post('/designer', async (req, res) => {
+    try {
+        var designer = new Designer(req.body);
+        await designer.save();
+        res.status(200).send(designer);
+    } catch (error) {
+        res.status(400).send(error);
+    }
+})
+
+//
+// ─── CREATE A MAKER ──────────────────────────────────────────────────────────
+//
+
+router.post('/maker', async (req, res) => {
+    try {
+        var maker = new Maker(req.body);
+        await maker.save();
+        res.status(200).send(maker);
+    } catch (error) {
+        res.status(400).send(error);
+    }
+})
+
+//
 // ─── EXPORT THE ROUTES ──────────────────────────────────────────────────────────
 //
 
-modeule.exports = router;
+module.exports = router;
