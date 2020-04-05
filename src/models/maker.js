@@ -10,7 +10,7 @@ var sharp = require('sharp');
 var makerSchema = new mongoose.Schema({
     email:{
         type:String,
-        required:true,
+        required:[true, "Email is a required field"],
         trim:true,
         lowercase:true,
         unique:true,
@@ -22,7 +22,7 @@ var makerSchema = new mongoose.Schema({
     },
     password:{
         type:String,
-        required:true,
+        required:[true, "Password is a required field"],
         validate(value){
             if(!validator.isLength(value,{min:6,max:1000}))
             {
@@ -36,7 +36,7 @@ var makerSchema = new mongoose.Schema({
     },
     capacity:{
         type:Number,
-        required:true,
+        required:[true, "Capacity is a required field"],
         trim:true,
         validate(value){
             if (value<1 || !(Number.isInteger(value))) {
@@ -46,7 +46,7 @@ var makerSchema = new mongoose.Schema({
     },
     material:{
         type: String,
-        required:true,
+        required:[true, "Material is a required field"],
         trim:true,
         lowercase:true,
         enum:{
@@ -56,9 +56,21 @@ var makerSchema = new mongoose.Schema({
     },
     location:{
         type:String,
-        required:true,
+        required:[true, "Location is a required field"],
         trim:true,
         lowercase:true
+    },
+    imageLink:{
+        type:String,
+        trim:true,
+        validate(value){
+            if(!validator.isURL(value)){
+                throw new Error("Please enter URL in a valid format")
+            }
+        }
+    },
+    rawimage:{
+        type:Buffer
     }
 },{
     timestamps:true

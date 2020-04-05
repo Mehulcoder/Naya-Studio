@@ -24,7 +24,7 @@ router.post('/designer', async (req, res) => {
         await designer.save();
         res.status(200).send(designer);
     } catch (error) {
-        res.status(400).send(error.errors.capacity.message);
+        res.status(400).send(error);
     }
 })
 
@@ -38,7 +38,7 @@ router.post('/maker', async (req, res) => {
         await maker.save();
         res.status(200).send(maker);
     } catch (error) {
-        res.status(400).send(error.errors.capacity.message);
+        res.status(400).send(error);
     }
 })
 
@@ -52,7 +52,7 @@ router.post('/designerMaker', async (req, res) => {
         await designerMaker.save();
         res.status(200).send(designerMaker);
     } catch (error) {
-        res.status(400).send(error.errors.capacity.message);
+        res.status(400).send(error);
     }
 })
 
