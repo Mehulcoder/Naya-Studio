@@ -4,6 +4,7 @@ var multer = require('multer');
 var sharp = require('sharp');
 var Designer = require("../models/designer");
 var Maker = require('../models/maker');
+var DesignerMaker = require('../models/designerMaker');
 
 //
 // ─── VIEW ROUTE ─────────────────────────────────────────────────────────────────
@@ -36,6 +37,20 @@ router.post('/maker', async (req, res) => {
         var maker = new Maker(req.body);
         await maker.save();
         res.status(200).send(maker);
+    } catch (error) {
+        res.status(400).send(error);
+    }
+})
+
+//
+// ─── CREATE A DESIGNER+MAKER ──────────────────────────────────────────────────────────
+//
+
+router.post('/designerMaker', async (req, res) => {
+    try {
+        var designerMaker = new DesignerMaker(req.body);
+        await designerMaker.save();
+        res.status(200).send(designerMaker);
     } catch (error) {
         res.status(400).send(error);
     }

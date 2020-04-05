@@ -4,10 +4,10 @@ var bcrypt = require('bcryptjs');
 var sharp = require('sharp');
 
 //
-// ─── DESIGNER MODEL SCHEMA ──────────────────────────────────────────────────────
+// ─── MAKER MODEL SCHEMA ──────────────────────────────────────────────────────
 //
 
-var designerSchema = new mongoose.Schema({
+var designerMakerSchema = new mongoose.Schema({
     email:{
         type:String,
         required:true,
@@ -54,10 +54,26 @@ var designerSchema = new mongoose.Schema({
             message: 'Please choose from the given options only!'
         }
     },
+    material:{
+        type: String,
+        required:true,
+        trim:true,
+        lowercase:true,
+        enum:{
+            values:['wood','metal','plastic','glass','concrete','other'], 
+            message: 'Please choose from the given options only!'
+        }
+    },
     training:{
         type:String,
         required:true,
         trim:true
+    },
+    location:{
+        type:String,
+        required:true,
+        trim:true,
+        lowercase:true
     }
 },{
     timestamps:true
@@ -67,7 +83,7 @@ var designerSchema = new mongoose.Schema({
 // ─── PASSWORD HASHING ───────────────────────────────────────────────────────────
 //
 
-designerSchema.pre('save', async function (next) {  
+designerMakerSchema.pre('save', async function (next) {  
     
     //Check if the passoword is changed
     //If yes than hash it
@@ -82,12 +98,12 @@ designerSchema.pre('save', async function (next) {
 // ─── MODEL THE SCHEMA ─────────────────────────────────────────────────────────────
 //    
 
-var Designer = mongoose.model('Designer', designerSchema);
+var DesignerMaker = mongoose.model('DesignerMaker', designerMakerSchema);
 
 //
 // ─── MODULE EXPORT ──────────────────────────────────────────────────────────────
 //
 
-module.exports = Designer;
+module.exports = DesignerMaker;
 
 // ────────────────────────────────────────────────────────────────────────────────

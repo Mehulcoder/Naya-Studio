@@ -65,6 +65,21 @@ var makerSchema = new mongoose.Schema({
 })
 
 //
+// ─── PASSWORD HASHING ───────────────────────────────────────────────────────────
+//
+
+makerSchema.pre('save', async function (next) {  
+    
+    //Check if the passoword is changed
+    //If yes than hash it
+    
+    if (this.isModified('password')) {
+        this.password = await bcrypt.hash(this.password,8);
+    }
+    next();
+})
+
+//
 // ─── MODEL THE SCHEMA ─────────────────────────────────────────────────────────────
 //    
 
