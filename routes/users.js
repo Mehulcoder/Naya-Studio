@@ -90,7 +90,7 @@ router.post('/maker',convert, async (req, res) => {
 // ─── CREATE A DESIGNER+MAKER ──────────────────────────────────────────────────────────
 //
 
-router.post('/designerMaker', async (req, res) => {
+router.post('/designerMaker',convert, async (req, res) => {
     try {
         var designerMaker = new DesignerMaker(req.body);
         await designerMaker.save();

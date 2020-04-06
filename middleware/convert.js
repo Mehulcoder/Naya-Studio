@@ -1,3 +1,5 @@
+// Convert string to array to handle only single selection in 'materials' property
+
 var convert = async (req, res, next) => {
     try {
         var arr = new Array();
