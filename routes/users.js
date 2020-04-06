@@ -10,11 +10,6 @@ var Maker = require('../models/maker');
 var DesignerMaker = require('../models/designerMaker');
 
 //
-// ─── LANDING ROUTE ──────────────────────────────────────────────────────────────
-//
-
-
-//
 // ─── FORM GET ROUTE ─────────────────────────────────────────────────────────────────
 //
 
@@ -40,13 +35,6 @@ router.get('/designerMaker', (req, res) => {
     });
 })
 
-//
-// ─── VIEW ROUTE ─────────────────────────────────────────────────────────────────
-//
-
-router.get('/view', async (req, res) => {
-    res.send("Hello to the page")
-});
 
 //
 // ─── CREATE A DESIGNER ──────────────────────────────────────────────────────────
