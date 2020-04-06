@@ -23,6 +23,8 @@ Below are the download links for the same:
 * [MongoDB](https://www.mongodb.com/download-center/community)
 * [POSTMAN](https://www.postman.com/downloads/)
 
+Install them and then move to the next step.
+
 
 ### Installing
 
