@@ -46,7 +46,7 @@ The application can be tested using POSTMAN or using a Web browser through which
 * Setting up environment.
 	* Open POSTMAN application, name your collection as Naya-Studio. And click this button on the top left.
 	*![enter image description here](https://learning-services-media.brightcove.com/doc-assets/node/17919-use-postman-http-requests/node17919-create-new-request.png)
-	*  Name the request as create Designer.
+	*  Name the request as *Create Designer*.
 	* Now change the Request type from GET to POST
 	![enter image description here](https://i.imgur.com/cW47qww.png)
 
