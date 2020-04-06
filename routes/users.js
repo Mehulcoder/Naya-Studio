@@ -19,7 +19,9 @@ var DesignerMaker = require('../models/designerMaker');
 //
 
 router.get('/maker', (req, res) => {
-    res.render('maker.ejs')
+    res.render('maker.ejs',{
+        success: req.flash('success')
+    });
 })
 
 // ────────────────────────────────────────────────────────────────────────────────
@@ -33,7 +35,9 @@ router.get('/designer', (req, res) => {
 // ────────────────────────────────────────────────────────────────────────────────
 
 router.get('/designerMaker', (req, res) => {
-    res.render('designerMaker.ejs')
+    res.render('designerMaker.ejs',{
+        success: req.flash('success')
+    });
 })
 
 //
@@ -53,7 +57,7 @@ router.post('/designer', async (req, res) => {
     try {
         var designer = new Designer(req.body);
         await designer.save();
-        req.flash('success', 'Successfuly created event');
+        req.flash('success', 'Successfuly created User');
         res.status(200).redirect('/designer');
     } catch (error) {
         if (error.name === "ValidationError") {
@@ -77,7 +81,8 @@ router.post('/maker', async (req, res) => {
     try {
         var maker = new Maker(req.body);
         await maker.save();
-        res.status(200).send(maker);
+        req.flash('success', 'Successfuly created User');
+        res.status(200).redirect('/maker');
     } catch (error) {
         if (error.name === "ValidationError") {
             let errors = {};
@@ -100,7 +105,8 @@ router.post('/designerMaker', async (req, res) => {
     try {
         var designerMaker = new DesignerMaker(req.body);
         await designerMaker.save();
-        res.status(200).send(designerMaker);
+        req.flash('success', 'Successfuly created User');
+        res.status(200).redirect('/designerMaker');
     } catch (error) {
         if (error.name === "ValidationError") {
             let errors = {};

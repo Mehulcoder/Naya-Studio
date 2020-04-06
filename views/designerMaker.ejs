@@ -12,6 +12,11 @@
     <title>Sign Up</title>
   </head>
   <body style="background-color: rgb(212, 116, 116);">
+    <% if(success.length > 0){ %>
+        <div class="alert alert-success" role="alert">
+          <%= success %> 
+        </div> 
+      <% } %> 
     
     <div class="row m-0">
         <div class="col-lg-5 col-md-7 col-sm-8 col-10 m-auto">
@@ -25,7 +30,7 @@
                     <!--
                       -- FORM STARTS
                       -->
-                    <form action="/maker" method="POST">
+                    <form action="/designerMaker" method="POST">
                         <div class="row">
                             <div class=" col-sm-6 form-group">
                                 <label for="email">Email address</label>
@@ -43,8 +48,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="capacity">How many projects on average do you work on every month?</label>
-                                    <select class="form-control" id="capacity" name="capacity">
+                                    <label for="makerCapacity">How many projects on average do you work on every month?</label>
+                                    <select class="form-control" id="makerCapacity" name="makerCapacity">
                                       <option>1</option>
                                       <option>2</option>
                                       <option>3</option>
@@ -60,36 +65,64 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="capacity">How many hours can you send on Naya projects per week? </label>
-                                    <input type="text" name="capacity" class="form-control" id="capacity" placeholder="Capacity">
+                                    <label for="designerCapacity">How many hours can you send on Naya projects per week? </label>
+                                    <input type="number" name="designerCapacity" class="form-control" id="designerCapacity" placeholder="Capacity">
                                   </div>
                             </div>
                           </div>
 
+                            <div class="row">
+                                <div class="col-auto col-md-6 form-group">
+                                    <label for="category">Which of the following best describes you?</label>
+                                <select class="form-control" id="category" name="category">
+                                <option>Furniture Designer</option>
+                                <option>Architect</option>
+                                <option>Interior Designer</option>
+                                <option>Industrial Designer</option>
+                                <option>Designer Maker</option>
+                                </select>
+                                
+                                </div>
+
+                                <div class="col-auto col-md-6 form-group">
+                                    <label for="training">Education level/type </label>
+                                    <input type="text" name="training" class="form-control" id="training" placeholder="Training">
+                                </div>
+
+                            </div>
+
+                          <div class="form-group">
+                            </div>
+
                           <div class="form-group">
                             <label for="materials">What kind of materials can you work with?</label>
 
-                            <select multiple class="form-control" id="materials" name="materials">
-                              <option>Wood</option>
-                              <option>Metal</option>
-                              <option>Glass</option>
-                              <option>Plastic</option>
-                              <option>Concrete</option>
-                            </select>
-                            <small id="emailHelp" class="form-text text-muted">Hold Ctrl and click to select multiple items</small>
+                                <select multiple class="form-control" id="materials" name="materials">
+                                  <option>Wood</option>
+                                  <option>Metal</option>
+                                  <option>Glass</option>
+                                  <option>Plastic</option>
+                                  <option>Concrete</option>
+                                </select>
+                                <small id="help" class="form-text text-muted">Hold Ctrl and click to select multiple items</small>
                           </div>
 
-                          <div class="form-group">
-                            <label for="location">Where are your based out of? </label>
-                            <input type="location" name="location" class="form-control" id="location" placeholder="Location">
+                          <div class="row form-horizontal">
+                              <div class="col-auto col-md-6 form-group">
+                                <label for="location">Where are your based out of? </label>
+                                <input type="location" name="location" class="form-control" id="location" placeholder="Location">
+                              </div>
+
+                              <div class="col-auto col-md-6 form-group">
+                                <label for="imageLink">Paste the link to your picture:</label>
+                                <input type="url" name="imageLink" class="form-control" id="imageLink" placeholder="Link to the Image">
+                              </div>
+
                           </div>
 
-                          <div class="form-group">
-                            <label for="imageLink">Paste the link to your profile picture</label>
-                            <input type="url" name="imageLink" class="form-control" id="imageLink" placeholder="Link to the Image">
-                          </div>
+                          <input type="submit" value="Submit" class="btn btn-primary mb-2 float-right">
+                          <a class="btn btn-primary float-left" href="/" role="button">Go Home</a>
 
-                          <input type="submit" value="Submit" class="btn btn-primary mb-2">
                     </form>
                 </div>
             </div>
