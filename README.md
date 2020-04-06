@@ -1,7 +1,7 @@
 
 # Naya Studio
 A sign-up experience for designers and makers, where they are asked several question and the data is stored in a Database.
-The frontend of the website is designed 
+The frontend of the website is designed using Bootstrap 4 to make it fully responsive.
 
 ## Getting Started
 
