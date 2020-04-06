@@ -1,1 +1,81 @@
-<h1>Hello this is the designer form</h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Sign Up</title>
+  </head>
+  <body style="background-color:pink;">
+    
+    <div class="row m-auto">
+        <div class="col-lg-4 col-md-5 col-sm-6 col-10 m-auto">
+            <div class="card mt-5 bg-dark shadow-lg">
+                
+                <div class="card-title text-center mt-2">
+                    <div class="shadow-lg">
+                        <img class="img-fluid shadow" src="img/user.png" width="150px" height="150px">
+                    </div>
+                </div>
+                
+                <div class="card-body">
+                    <!--
+                      -- FORM STARTS
+                      -->
+                    <form action="/designer" method="POST">
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                          </div>
+
+                          <div class="form-group">
+                            <label for="capacity">How many hours can you send on Naya projects per week? </label>
+                            <input type="text" name="capacity" class="form-control" id="capacity" placeholder="Capacity">
+                          </div>
+
+                          <div class="form-group">
+                            <label for="category">Which of the following best describes you?</label>
+                            <select class="form-control" id="category" name="category">
+                              <option>Furniture Designer</option>
+                              <option>Architect</option>
+                              <option>Interior Designer</option>
+                              <option>Industrial Designer</option>
+                              <option>Designer Maker</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="training">Education level/type </label>
+                            <input type="text" name="training" class="form-control" id="training" placeholder="Training">
+                          </div>
+
+                          <div class="form-group">
+                            <label for="imageLink">Paste the link to your profile picture</label>
+                            <input type="url" name="imageLink" class="form-control" id="imageLink" placeholder="Link to the Image">
+                          </div>
+
+                          <input type="submit" value="Submit" class="btn btn-primary mb-2">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

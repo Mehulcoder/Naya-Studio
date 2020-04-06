@@ -14,21 +14,15 @@ var designerMakerSchema = new mongoose.Schema({
         trim:true,
         lowercase:true,
         unique:true,
-        validate(value){
-            if (!validator.isEmail(value)) {
-                throw new Error("Please enter a valid E-mail!");
-            }
-        }
+        validate: [validator.isEmail, "Please enter a valid E-mail!" ]
+
     },
     password:{
         type:String,
         required:[true, "Password is a required field"],
+        minlength: 6,
+        maxlength:1000,
         validate(value){
-            if(!validator.isLength(value,{min:6,max:1000}))
-            {
-                throw Error("Minimum length of the password must be 6");
-            }
-
             if(value.toLowerCase().includes('password')){
                 throw Error('The password should not contain the keyword "password"!');
             }
@@ -64,16 +58,18 @@ var designerMakerSchema = new mongoose.Schema({
             message: 'Please choose from the given options only!'
         }
     },
-    material:{
-        type: String,
-        required:[true, "Material is a required field"],
-        trim:true,
-        lowercase:true,
-        enum:{
-            values:['wood','metal','plastic','glass','concrete','other'], 
-            message: 'Please choose from the given options only!'
+    materials:[
+        {
+            type: String,
+            required:[true, "Material is a required field"],
+            trim:true,
+            lowercase:true,
+            enum:{
+                values:['wood','metal','plastic','glass','concrete','other'], 
+                message: 'Please choose from the given options only!'
+            }
         }
-    },
+    ],
     training:{
         type:String,
         required:[true, "Training is a required field"],
@@ -88,11 +84,7 @@ var designerMakerSchema = new mongoose.Schema({
     imageLink:{
         type:String,
         trim:true,
-        validate(value){
-            if(!validator.isURL(value)){
-                throw new Error("Please enter URL in a valid format")
-            }
-        }
+        validate:[validator.isURL, "Please enter URL in a valid format"]
     }
 },{
     timestamps:true

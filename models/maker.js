@@ -14,21 +14,15 @@ var makerSchema = new mongoose.Schema({
         trim:true,
         lowercase:true,
         unique:true,
-        validate(value){
-            if (!validator.isEmail(value)) {
-                throw new Error("Please enter a valid E-mail!");
-            }
-        }
+        validate: [validator.isEmail, "Please enter a valid E-mail!" ]
+
     },
     password:{
         type:String,
         required:[true, "Password is a required field"],
+        minlength: 6,
+        maxlength:1000,
         validate(value){
-            if(!validator.isLength(value,{min:6,max:1000}))
-            {
-                throw Error("Minimum length of the password must be 6");
-            }
-
             if(value.toLowerCase().includes('password')){
                 throw Error('The password should not contain the keyword "password"!');
             }
@@ -65,11 +59,7 @@ var makerSchema = new mongoose.Schema({
     imageLink:{
         type:String,
         trim:true,
-        validate(value){
-            if(!validator.isURL(value)){
-                throw new Error("Please enter URL in a valid format")
-            }
-        }
+        validate:[validator.isURL, "Please enter URL in a valid format"]
     }
 },{
     timestamps:true
