@@ -35,7 +35,7 @@ Install them and then move to the next step.
 * To install the required dependencies, inside the terminal, run command ```npm install```
 
 ## Running and Testing
-* Using the terminal run command ```nodemon index.js```
+* Using the terminal run command ```nodemon index.js``` or ```node index.js```
 * Make sure that in the terminal	 you get the message:
 	 ```Sever is on port 3000```
 * This ensures that the application is running properly.
