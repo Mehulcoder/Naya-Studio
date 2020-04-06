@@ -66,7 +66,6 @@ router.post('/designer', async (req, res) => {
 //
 
 router.post('/maker',convert, async (req, res) => {
-    console.log(req.body.materials, typeof(req.body.materials));
     try {
         var maker = new Maker(req.body);
         await maker.save();

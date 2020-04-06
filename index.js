@@ -14,7 +14,6 @@ var app = express();
 var port = 3000 || process.env.PORT;
 
 var publicDirectoryPath = path.join(__dirname,'public');
-console.log(publicDirectoryPath)
 app.use(express.static(publicDirectoryPath));
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -23,6 +22,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.set("view engine", "ejs");
 app.use(cookieParser('secret'));
 app.use(session({
+    secret: 'secret',
     cookie: { maxAge: 60000 },
     resave:false,
     saveUninitialized:false
