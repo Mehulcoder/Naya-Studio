@@ -53,7 +53,6 @@ router.get('/view', async (req, res) => {
 //
 
 router.post('/designer', async (req, res) => {
-    console.log(req.body);
     try {
         var designer = new Designer(req.body);
         await designer.save();

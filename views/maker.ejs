@@ -1,101 +1,104 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- Link CSS -->
-    <link rel="stylesheet" href="./css/main.css">
-    <title>Sign Up</title>
-  </head>
-  <body>
-    <% if(success.length > 0){ %>
-      <div class="alert alert-success" role="alert">
-        <%= success %> 
-      </div> 
-    <% } %> 
-    
-    <div class="row m-0">
-        <div class="col-lg-4 col-md-5 col-sm-6 col-10 m-auto">
-            <div class="card mt-5 bg-dark">
-                
-                <div class="card-title text-center mt-2">
-                    <img class="img-fluid" src="img/user.png" width="150px" height="150px">
-                </div>
-                
-                <div class="card-body">
-                    <!--
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="./css/main.css">
+  <title>Sign Up</title>
+</head>
+
+<body>
+  <!-- Flash alert message -->
+  <% if(success.length > 0){ %>
+  <div class="alert alert-success" role="alert">
+    <%= success %>
+  </div>
+  <% } %>
+
+  <div class="row m-0">
+    <div class="col-lg-5 col-md-7 col-sm-6 col-10 m-auto">
+      <!-- Container of form -->
+      <div class="card mt-5 bg-dark">
+        <div class="card-title text-center mt-2">
+          <img class="img-fluid" src="img/user.png" width="150px" height="150px">
+        </div>
+        <div class="card-body">
+          <!--
                       -- FORM STARTS
                       -->
-                    <form action="/maker" method="POST">
-                        <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                          </div>
-                          
-                          <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
-                          </div>
+          <form action="/maker" method="POST">
+            
+            <div class="row">
+              <div class=" col-md-6 form-group">
+                <label for="email">Email address</label>
+                <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
 
-                          <div class="form-group">
-                            <label for="capacity">How many projects on average do you work on every month?</label>
-                            <select class="form-control" id="capacity" name="capacity">
-                              <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                              <option>5</option>
-                              <option>6</option>
-                              <option>7</option>
-                              <option>8</option>
-                              <option>9</option>
-                              <option>10+</option>
-                            </select>
-                          </div>
-
-                          <div class="form-group">
-                            <label for="materials">What kind of materials can you work with?</label>
-
-                            <select multiple class="form-control" id="materials" name="materials">
-                              <option>Wood</option>
-                              <option>Metal</option>
-                              <option>Glass</option>
-                              <option>Plastic</option>
-                              <option>Concrete</option>
-                            </select>
-                            <small id="emailHelp" class="form-text text-muted">Hold Ctrl and click to select multiple items</small>
-                          </div>
-
-                          <div class="form-group">
-                            <label for="location">Where are your based out of? </label>
-                            <input type="location" name="location" class="form-control" id="location" placeholder="Location">
-                          </div>
-
-                          <div class="form-group">
-                            <label for="imageLink">Paste the link to your profile picture</label>
-                            <input type="url" name="imageLink" class="form-control" id="imageLink" placeholder="Link to the Image">
-                          </div>
-
-                          
-                          <input type="submit" value="Submit" class="btn btn-primary mb-2 float-right">
-                          <a class="btn btn-primary float-left" href="/" role="button">Go Home</a>
-
-                          
-                    </form>
-                </div>
+              <div class="col-md-6  form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+              </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+            <div class="form-group">
+              <label for="capacity">How many projects on average do you work on every month?</label>
+                <input type="number" name="capacity" class="form-control" id="capacity" placeholder="Capacity">
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="materials">What kind of materials can you work with?</label>
+
+              <select multiple class="form-control" id="materials" name="materials">
+                <option>Wood</option>
+                <option>Metal</option>
+                <option>Glass</option>
+                <option>Plastic</option>
+                <option>Concrete</option>
+              </select>
+              <small id="emailHelp" class="form-text text-muted">Hold Ctrl and click to select multiple items</small>
+            </div>
+
+            <div class="form-group">
+              <label for="location">Where are your based out of? </label>
+              <input type="location" name="location" class="form-control mt-auto" id="location" placeholder="Location">
+            </div>
+
+            <div class="form-group">
+              <label for="imageLink">Paste the link to your profile picture</label>
+              <input type="url" name="imageLink" class="form-control mt-auto" id="imageLink" placeholder="Link to the Image">
+            </div>
+
+
+            <input type="submit" value="Submit" class="btn btn-primary mb-2 float-right">
+            <a class="btn btn-primary float-left" href="/" role="button">Go Home</a>
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+</body>
+
 </html>
