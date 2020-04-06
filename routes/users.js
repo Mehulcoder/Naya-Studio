@@ -8,6 +8,7 @@ var sharp = require('sharp');
 var Designer = require("../models/designer");
 var Maker = require('../models/maker');
 var DesignerMaker = require('../models/designerMaker');
+var convert = require('../middleware/convert');
 
 //
 // ─── FORM GET ROUTE ─────────────────────────────────────────────────────────────────
@@ -64,8 +65,8 @@ router.post('/designer', async (req, res) => {
 // ─── CREATE A MAKER ──────────────────────────────────────────────────────────
 //
 
-router.post('/maker', async (req, res) => {
-    console.log(req.body);
+router.post('/maker',convert, async (req, res) => {
+    console.log(req.body.materials, typeof(req.body.materials));
     try {
         var maker = new Maker(req.body);
         await maker.save();
