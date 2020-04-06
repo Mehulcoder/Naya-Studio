@@ -1,5 +1,8 @@
 var express =  require('express');
 var router = new express.Router();
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
+var flash = require('connect-flash');
 var multer = require('multer');
 var sharp = require('sharp');
 var Designer = require("../models/designer");
@@ -22,7 +25,9 @@ router.get('/maker', (req, res) => {
 // ────────────────────────────────────────────────────────────────────────────────
 
 router.get('/designer', (req, res) => {
-    res.render('designer.ejs')
+    res.render('designer.ejs',{
+        success: req.flash('success')
+    });
 })
 
 // ────────────────────────────────────────────────────────────────────────────────
@@ -48,7 +53,8 @@ router.post('/designer', async (req, res) => {
     try {
         var designer = new Designer(req.body);
         await designer.save();
-        res.status(200).send(designer);
+        req.flash('success', 'Successfuly created event');
+        res.status(200).redirect('/designer');
     } catch (error) {
         if (error.name === "ValidationError") {
             let errors = {};
