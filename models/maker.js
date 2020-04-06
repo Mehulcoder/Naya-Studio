@@ -44,16 +44,18 @@ var makerSchema = new mongoose.Schema({
             }
         }
     },
-    material:{
-        type: String,
-        required:[true, "Material is a required field"],
-        trim:true,
-        lowercase:true,
-        enum:{
-            values:['wood','metal','plastic','glass','concrete','other'], 
-            message: 'Please choose from the given options only!'
+    materials:[
+        {
+            type: String,
+            required:[true, "Material is a required field"],
+            trim:true,
+            lowercase:true,
+            enum:{
+                values:['wood','metal','plastic','glass','concrete','other'], 
+                message: 'Please choose from the given options only!'
+            }
         }
-    },
+    ],
     location:{
         type:String,
         required:[true, "Location is a required field"],
