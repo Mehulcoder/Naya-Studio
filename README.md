@@ -1,7 +1,8 @@
 
+
 # Naya Studio
 A sign-up experience for designers and makers, where they are asked several question and the data is stored in a Database.
-The frontend of the website is designed 
+The frontend of the website is designed using Bootstrap 4 to make it fully responsive.
 
 ## Getting Started
 
@@ -22,6 +23,8 @@ Below are the download links for the same:
 * [NodeJs and npm](https://nodejs.org/en/download/)
 * [MongoDB](https://www.mongodb.com/download-center/community)
 * [POSTMAN](https://www.postman.com/downloads/)
+
+Install them and then move to the next step.
 
 
 ### Installing
@@ -103,7 +106,8 @@ The application can be tested using POSTMAN or using a Web browser through which
 ### BROWSER
 * Well, this one is quite easy. Open Google Chrome or any other Browser (preferably latest).
 * In the address bar type: ```localhost:3000``` and press enter. 
-* There you go, you can now choose from the options available on the screen accordingly which will redirect you to the correct forms for you.
+* There you go, you can now choose from the options available on the screen accordingly which will redirect you to the correct form for you.
+* I have added a really nice feature which displays a **flash message** on successful submission of the form.
 
 ## Validations in mongoose
 
