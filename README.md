@@ -45,7 +45,7 @@ The application can be tested using POSTMAN or using a Web browser through which
 	*![enter image description here](https://learning-services-media.brightcove.com/doc-assets/node/17919-use-postman-http-requests/node17919-create-new-request.png)
 	*  Name the request as create Designer.
 	* Now change the Request type from GET to POST
-![enter image description here](https://learning-services-media.brightcove.com/doc-assets/node/17919-use-postman-http-requests/node17919-select-request-type.png)
+	![enter image description here](https://i.imgur.com/cW47qww.png)
 
 	* Add two more POST request with names Create Maker and Create DesignMaker
 	![enter image description here](https://i.imgur.com/pxPrsng.png)
@@ -104,42 +104,65 @@ The application can be tested using POSTMAN or using a Web browser through which
 * Well, this one is quite easy. Open Google Chrome or any other Browser (preferably latest).
 * In the address bar type: ```localhost:3000``` and press enter. 
 * There you go, you can now choose from the options available on the screen accordingly which will redirect you to the correct forms for you.
-* 
 
+## Validations in mongoose
 
+I have added the following validations for 3 of the following models:
+### Maker model
+* **email** should be of valid format.
+* Length of **password** should be between 6-1000. It should not contain the term "*password*", in any form.
+* **capacity** must be an *integer* greater than or equal to 1.
+* **materials** should be an array of String elements. And should contain items only from:```['wood','metal','plastic','glass','concrete','other']```
+* **imageLink** should be a URL in correct format.
 
+### Designer model
+Common fields have same validations. Different ones are discussed below:
 
+* **category** of designer should be a String element. And should be only from from:```['furniture designer','architect','interior designer','industrial designer','designer maker','other']```
+* No need to worry about the lowercase/uppercase, I've made sure that input changes to lowercase before validation and getting saved.
+* **capacity** of designer should be a number greater than zero (yes, we accept decimals too).
 
-## Deployment
+### designerMaker model
 
-Add additional notes about how to deploy this on a live system
+The validations of above two models are used in it.
+
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* NodeJs
+* Express
+* MongoDb
+* npm dependencies used:
+	* "bcryptjs": "^2.4.3" : To hash the password.
 
-## Contributing
+	* "body-parser": "^1.19.0" : Parsing the JSON body.
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+	* "connect-flash": "^0.1.1": Displaying flash message on success.
 
-## Versioning
+	* "cookie-parser": "^1.4.5",
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+	* "ejs": "^3.0.2": For rendering.
+
+	* "express": "^4.17.1": Framework.
+
+	* "express-session": "^1.17.0",
+
+	* "mongoose": "^5.9.7": ODM library for MongoDB and nodeJS.
+
+	* "multer": "^1.4.2"
+
+	* "path": "^0.12.7"
+
+	* "sharp": "^0.25.2"
+
+	* "validator": "^13.0.0": For some super cool validations
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **[Mehul Chaturvedi](https://github.com/Mehulcoder)**
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+This task served as a really intresting and fun project for me. Building everything from scratch, going through errors,looking for solutions, solving them, implementing new ideas helped me learn a lot of cool stuff.
+Also, I tried to make this README as detailed as possible. If you have any queries you can E-mail me at ```mehul170104047@iitg.ac.in``` or ```mehul355180@gmail.com```.
