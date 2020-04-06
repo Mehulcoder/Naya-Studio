@@ -45,7 +45,8 @@ The application can be tested using POSTMAN or using a Web browser through which
 	*![enter image description here](https://learning-services-media.brightcove.com/doc-assets/node/17919-use-postman-http-requests/node17919-create-new-request.png)
 	*  Name the request as create Designer.
 	* Now change the Request type from GET to POST
-	![enter image description here](https://learning-services-media.brightcove.com/doc-assets/node/17919-use-postman-http-requests/node17919-select-request-type.png)
+![enter image description here](https://learning-services-media.brightcove.com/doc-assets/node/17919-use-postman-http-requests/node17919-select-request-type.png)
+
 	* Add two more POST request with names Create Maker and Create DesignMaker
 	![enter image description here](https://i.imgur.com/pxPrsng.png)
 * We have 3 different POST routes in this application
@@ -91,10 +92,22 @@ The application can be tested using POSTMAN or using a Web browser through which
 	"imageLink":"https://i.imgur.com/DFh1OcM.png"
 	}
 	```
-* Click save and then send to send the request.
+* Click Save and then Send, to send the request.
 * You can now see the request status, to check whether it is a success or failure.
-*  
+*  On a success code, the User has been added to your database. You can check the ```nayaStudio``` collection in MongoDB using [terminal](https://docs.mongodb.com/manual/reference/mongo-shell/) or using [Robo3t](https://robomongo.org/) GUI. You can see that passwords are secured by hashing.
+![Robo3t snapshot](https://i.imgur.com/ljnsFqZ.png)
 	
+* In case of wrong input(we'll discuss the allowed inputs very soon) you'll get an error message in the POSTMAN. Example:
+![enter image description here](https://i.imgur.com/kO3d2hh.png)
+* This is all about POSTMAN. For any queries feel free to Email me at ```mehul170104047@iitg.ac.in```
+### BROWSER
+* Well, this one is quite easy. Open Google Chrome or any other Browser (preferably latest).
+* In the address bar type: ```localhost:3000``` and press enter. 
+* There you go, you can now choose from the options available on the screen accordingly which will redirect you to the correct forms for you.
+* 
+
+
+
 
 
 ## Deployment
