@@ -10,6 +10,18 @@ var Maker = require('../models/maker');
 var DesignerMaker = require('../models/designerMaker');
 var convert = require('../middleware/convert');
 
+// Setting up multer
+var storage = multer.diskStorage({
+    destination: function (req, file, callback) {  
+
+    },
+    filename: function (req, file, cb) {  
+
+    }
+
+});
+var upload = multer({dest: 'uploads/'});
+
 //
 // ─── FORM GET ROUTE ─────────────────────────────────────────────────────────────────
 //
@@ -41,10 +53,13 @@ router.get('/designerMaker', (req, res) => {
 // ─── CREATE A DESIGNER ──────────────────────────────────────────────────────────
 //
 
-router.post('/designer', async (req, res) => {
+router.post('/designer', upload.single('designerImage'), async (req, res) => {
+    console.log(req.file);
     try {
         var designer = new Designer(req.body);
         await designer.save();
+
+        //To display flash message
         req.flash('success', 'Successfuly created User');
         res.status(200).redirect('/designer');
     } catch (error) {
@@ -69,6 +84,8 @@ router.post('/maker',convert, async (req, res) => {
     try {
         var maker = new Maker(req.body);
         await maker.save();
+
+        //To display flash message
         req.flash('success', 'Successfuly created User');
         res.status(200).redirect('/maker');
     } catch (error) {
@@ -93,6 +110,8 @@ router.post('/designerMaker',convert, async (req, res) => {
     try {
         var designerMaker = new DesignerMaker(req.body);
         await designerMaker.save();
+
+        //To display flash message
         req.flash('success', 'Successfuly created User');
         res.status(200).redirect('/designerMaker');
     } catch (error) {
