@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 var validator = require('validator');
 var bcrypt = require('bcryptjs');
-var sharp = require('sharp');
 
 //
 // ─── MAKER MODEL SCHEMA ──────────────────────────────────────────────────────

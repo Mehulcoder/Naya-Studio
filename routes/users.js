@@ -4,7 +4,6 @@ var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var flash = require('connect-flash');
 var multer = require('multer');
-var sharp = require('sharp');
 var Designer = require("../models/designer");
 var Maker = require('../models/maker');
 var DesignerMaker = require('../models/designerMaker');
