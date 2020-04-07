@@ -12,15 +12,35 @@ var convert = require('../middleware/convert');
 
 // Setting up multer
 var storage = multer.diskStorage({
-    destination: function (req, file, callback) {  
-
+    
+    //Setting up destination and filename for uploads
+    destination: function (req, file, cb) {  
+        cb(null, 'uploads/');
     },
     filename: function (req, file, cb) {  
-
+        cb(null, new Date().toISOString() + file.originalname);
     }
 
 });
-var upload = multer({dest: 'uploads/'});
+
+var fileFilter = (req, file,cb) => {
+    
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png' || file.mimetype === 'image/jpeg') {
+        //accept a file
+        cb(null, true);
+    }else{
+        //reject a file
+        cb(null, false);
+    }
+}
+
+var upload = multer({
+    storage: storage,
+    limits:{
+        fieldSize: 1024*1024*6,
+    },
+    fileFilter: fileFilter
+});
 
 //
 // ─── FORM GET ROUTE ─────────────────────────────────────────────────────────────────
