@@ -77,12 +77,17 @@
               <label for="imageLink">Paste the link to your profile picture:</label>
               <input type="url" name="imageLink" class="form-control" id="imageLink" placeholder="Link to the Image">
             </div>
+            
+            <label for="designerImage">OR upload the picture from you device</label>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input mb-3" id="designerImage" name="designerImage">
+              <label class="custom-file-label" for="designerImage">Choose image...</label>
+              <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
+            </div>
 
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between mt-3">
               <a class="col-3 btn btn-primary " href="/" role="button">Go Home</a>
-              <input type="file" class="image_button" name="designerImage">
-              <input type="submit" value="Submit" class="col-3 btn btn-primary">
-              
+              <input type="submit" value="Submit" class="col-3 btn btn-primary"> 
             </div>
 
           </form>

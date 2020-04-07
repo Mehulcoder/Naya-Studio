@@ -76,12 +76,9 @@ router.get('/designerMaker', (req, res) => {
 // ─── CREATE A DESIGNER ──────────────────────────────────────────────────────────
 //
 
-router.post('/designer', upload.single('designerImage'), async (req, res) => {
-    console.log(req.file);
-    var imagePath = "";
-    if (req.file) {
-        imagePath=req.file.path;
-    }
+router.post('/designer', async (req, res) => {
+    // console.log(req.file);
+    
 
     //creating body for object
     var data = {
@@ -91,12 +88,19 @@ router.post('/designer', upload.single('designerImage'), async (req, res) => {
         category: req.body.category,
         training: req.body.training,
         imageLink: req.body.imageLink,
-        imagePath
     }
 
     try {
         var designer = new Designer(data);
         await designer.save();
+        upload.single('designerImage');
+
+        var imagePath = "";
+        if (req.file) {
+            imagePath=req.file.path;
+            designer.imagePath = imagePath;
+            await designer.save();
+        }
 
         //To display flash message
         req.flash('success', 'Successfuly created User');
@@ -120,6 +124,11 @@ router.post('/designer', upload.single('designerImage'), async (req, res) => {
 //
 
 router.post('/maker',convert, upload.single('makerImage'), async (req, res) => {
+    //Check if image is uploaded(gives no error though)
+    var imagePath = "";
+    if (req.file) {
+        imagePath=req.file.path;
+    }
 
     //creating body for object
     var data = {
@@ -158,7 +167,11 @@ router.post('/maker',convert, upload.single('makerImage'), async (req, res) => {
 //
 
 router.post('/designerMaker',convert,upload.single('designerMakerImage'), async (req, res) => {
-    
+    //Check if image is uploaded(gives no error though)
+    var imagePath = "";
+    if (req.file) {
+        imagePath=req.file.path;
+    }
     //creating body for object
     var data = {
         email: req.body.email,

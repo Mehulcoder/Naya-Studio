@@ -11,7 +11,7 @@ var path = require('path');
 require('./db/mongoose');
 
 var app = express();
-var port = 3000 || process.env.PORT;
+var port = 8000 || process.env.PORT;
 
 var publicDirectoryPath = path.join(__dirname,'public');
 app.use(express.static(publicDirectoryPath));
