@@ -109,11 +109,11 @@ The application can be tested using POSTMAN or using a Web browser through which
 
 * We have 3 different POST routes in this application
 
-* To create a Designer: ```localhost:3000/designer```
+* To create a Designer: ```localhost:8000/designer```
 
-* To create a Maker: ```localhost:3000/maker```
+* To create a Maker: ```localhost:8000/maker```
 
-* To create a DesignerMaker: ```localhost:3000/designerMaker```
+* To create a DesignerMaker: ```localhost:8000/designerMaker```
 
 * Add the urls accordingly and click save each time.![enter image description here](https://i.imgur.com/DFh1OcM.png)
 
