@@ -10,7 +10,10 @@ var Maker = require('../models/maker');
 var DesignerMaker = require('../models/designerMaker');
 var convert = require('../middleware/convert');
 
-// Setting up multer
+//
+// ─── SETTING UP MULTER ──────────────────────────────────────────────────────────
+//
+    
 var storage = multer.diskStorage({
     
     //Setting up destination and filename for uploads
@@ -30,7 +33,7 @@ var fileFilter = (req, file,cb) => {
         cb(null, true);
     }else{
         //reject a file
-        cb(null, false);
+        cb(new Error('Image file should be of "jpeg"/"png"/"jpg" format only'), false);
     }
 }
 
