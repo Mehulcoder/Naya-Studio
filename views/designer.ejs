@@ -37,7 +37,7 @@
           <!--
                       -- FORM STARTS
                       -->
-          <form action="/designer" method="POST">
+          <form action="/designer" method="POST" enctype="multipart/form-data">
             <div class="row">
               <div class=" col-md-6 form-group">
                 <label for="email">Email address</label>
@@ -78,8 +78,12 @@
               <input type="url" name="imageLink" class="form-control" id="imageLink" placeholder="Link to the Image">
             </div>
 
-            <input type="submit" value="Submit" class="btn btn-primary mb-2 float-right">
-            <a class="btn btn-primary float-left" href="/" role="button">Go Home</a>
+            <div class="d-flex justify-content-between">
+              <a class="col-3 btn btn-primary " href="/" role="button">Go Home</a>
+              <input type="file" class="image_button" name="designerImage">
+              <input type="submit" value="Submit" class="col-3 btn btn-primary">
+              
+            </div>
 
           </form>
         </div>

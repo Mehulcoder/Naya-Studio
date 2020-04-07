@@ -54,8 +54,10 @@ var designerSchema = new mongoose.Schema({
     },
     imageLink:{
         type:String,
-        trim:true,
-        validate:[validator.isURL, "Please enter URL in a valid format"]
+        trim:true
+    },
+    imagePath:{
+        type:String
     }
 },{
     timestamps:true

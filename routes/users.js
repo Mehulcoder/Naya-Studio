@@ -21,7 +21,7 @@ var storage = multer.diskStorage({
         cb(null, 'uploads/');
     },
     filename: function (req, file, cb) {  
-        cb(null, new Date().toISOString() + file.originalname);
+        cb(null, Date.now() + file.originalname);
     }
 
 });
@@ -78,8 +78,24 @@ router.get('/designerMaker', (req, res) => {
 
 router.post('/designer', upload.single('designerImage'), async (req, res) => {
     console.log(req.file);
+    var imagePath = "";
+    if (req.file) {
+        imagePath=req.file.path;
+    }
+
+    //creating body for object
+    var data = {
+        email: req.body.email,
+        password: req.body.password,
+        capacity: req.body.capacity,
+        category: req.body.category,
+        training: req.body.training,
+        imageLink: req.body.imageLink,
+        imagePath
+    }
+
     try {
-        var designer = new Designer(req.body);
+        var designer = new Designer(data);
         await designer.save();
 
         //To display flash message
@@ -103,9 +119,21 @@ router.post('/designer', upload.single('designerImage'), async (req, res) => {
 // ─── CREATE A MAKER ──────────────────────────────────────────────────────────
 //
 
-router.post('/maker',convert, async (req, res) => {
+router.post('/maker',convert, upload.single('makerImage'), async (req, res) => {
+
+    //creating body for object
+    var data = {
+        email: req.body.email,
+        password: req.body.password,
+        capacity: req.body.capacity,
+        materials: req.body.materials,
+        location: req.body.location,
+        imageLink: req.body.imageLink,
+        imagePath: req.file.path
+    }
+
     try {
-        var maker = new Maker(req.body);
+        var maker = new Maker(data);
         await maker.save();
 
         //To display flash message
@@ -129,9 +157,24 @@ router.post('/maker',convert, async (req, res) => {
 // ─── CREATE A DESIGNER+MAKER ──────────────────────────────────────────────────────────
 //
 
-router.post('/designerMaker',convert, async (req, res) => {
+router.post('/designerMaker',convert,upload.single('designerMakerImage'), async (req, res) => {
+    
+    //creating body for object
+    var data = {
+        email: req.body.email,
+        password: req.body.password,
+        makerCapacity: req.body.makerCapacity,
+        designerCapacity: req.body.designerCapacity,
+        category: req.body.category,
+        material: req.body.material,
+        training: req.body.training,
+        location: req.body.location,
+        imageLink: req.body.imageLink,
+        imagePath: req.file.path
+    }
+
     try {
-        var designerMaker = new DesignerMaker(req.body);
+        var designerMaker = new DesignerMaker(data);
         await designerMaker.save();
 
         //To display flash message
