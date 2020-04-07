@@ -119,7 +119,6 @@ router.post('/designer', upload.single('designerImage'), async (req, res) => {
 //
 
 router.post('/maker',convert, upload.single('makerImage'), async (req, res) => {
-    console.log(req.file);
     //Check if image is uploaded(gives no error though)
     var imagePath = "";
     if (req.file) {
