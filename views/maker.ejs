@@ -35,7 +35,7 @@
           <!--
                       -- FORM STARTS
                       -->
-          <form action="/maker" method="POST">
+          <form action="/maker" method="POST" enctype="multipart/form-data">
             
             <div class="row">
               <div class=" col-md-6 form-group">
@@ -79,9 +79,15 @@
               <input type="url" name="imageLink" class="form-control mt-auto" id="imageLink" placeholder="Link to the Image">
             </div>
 
+            <label for="makerImage">OR upload the picture from your device</label>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input mb-3" id="makerImage" name="makerImage">
+              <label class="custom-file-label" for="makerImage">Choose image...</label>
+              <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
+            </div>
 
-            <input type="submit" value="Submit" class="btn btn-primary mb-2 float-right">
-            <a class="btn btn-primary float-left" href="/" role="button">Go Home</a>
+            <input type="submit" value="Submit" class="btn btn-primary mt-3 float-right">
+            <a class="btn btn-primary float-left mt-3" href="/" role="button">Go Home</a>
 
 
           </form>

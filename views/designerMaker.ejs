@@ -35,7 +35,7 @@
                     <!--
                       -- FORM STARTS
                       -->
-                    <form action="/designerMaker" method="POST">
+                    <form action="/designerMaker" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class=" col-sm-6 form-group">
                                 <label for="email">Email address</label>
@@ -118,11 +118,17 @@
                                 <label for="imageLink">Paste the link to your picture:</label>
                                 <input type="url" name="imageLink" class="form-control mt-auto id="imageLink" placeholder="Link to the Image">
                             </div>
-
                         </div>
 
-                        <input type="submit" value="Submit" class="btn btn-primary mb-2 float-right">
-                        <a class="btn btn-primary float-left" href="/" role="button">Go Home</a>
+                        <label for="designerMakerImage">OR upload the picture from you device</label>
+                        <div class="custom-file">
+                        <input type="file" class="custom-file-input mb-3" id="designerMakerImage" name="designerMakerImage">
+                        <label class="custom-file-label" for="designerMakerImage">Choose image...</label>
+                        <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
+                        </div>
+
+                        <input type="submit" value="Submit" class="btn btn-primary mt-2 float-right">
+                        <a class="btn btn-primary float-left mt-2" href="/" role="button">Go Home</a>
 
                     </form>
                 </div>
